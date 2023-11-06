@@ -1,8 +1,7 @@
-# rortutor
 
-## Nama    : Shafira Nurrohmah
-## NPM     : 2206030035
-## Kelas   : PBP C
+### Nama    : Shafira Nurrohmah
+### NPM     : 2206030035
+### Kelas   : PBP C
 
 # rortutor
 
