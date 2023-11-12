@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rortutor/widgets/left_drawer.dart';
+import 'package:rortutor/screens/product_list.dart';
 
 // TODO: Impor drawer yang sudah dibuat sebelumnya
 
@@ -21,7 +22,7 @@ class _ShopFormPageState extends State<ShopFormPage> {
       appBar: AppBar(
         title: const Center(
           child: Text(
-            'Form Tambah Produk',
+            'Form Tambah Item',
           ),
         ),
         backgroundColor: Colors.indigo,
@@ -38,8 +39,8 @@ class _ShopFormPageState extends State<ShopFormPage> {
                 padding: const EdgeInsets.all(8.0),
                 child: TextFormField(
                   decoration: InputDecoration(
-                    hintText: "Nama Produk",
-                    labelText: "Nama Produk",
+                    hintText: "Nama Item",
+                    labelText: "Nama Item",
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(5.0),
                     ),
@@ -116,9 +117,14 @@ class _ShopFormPageState extends State<ShopFormPage> {
                     style: ButtonStyle(
                       backgroundColor:
                           MaterialStateProperty.all(Colors.indigo),
-                    ),
+                      ),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
+                        // Simpan data produk ke dalam list
+                        Product newProduct = Product(_name, _price, _description);
+                        ProductListPage.products.add(newProduct);
+
+                        // Tampilkan daftar produk yang sudah disimpan di dalam AlertDialog
                         showDialog(
                           context: context,
                           builder: (context) {
@@ -126,13 +132,11 @@ class _ShopFormPageState extends State<ShopFormPage> {
                               title: const Text('Produk berhasil tersimpan'),
                               content: SingleChildScrollView(
                                 child: Column(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text('Nama: $_name'),
                                     Text('Harga: $_price'),
-                                    Text('Deskripsi: $_description')
-                                    // TODO: Munculkan value-value lainnya
+                                    Text('Deskripsi: $_description'),
                                   ],
                                 ),
                               ),
@@ -147,8 +151,9 @@ class _ShopFormPageState extends State<ShopFormPage> {
                             );
                           },
                         );
+                        // Reset formulir setelah menyimpan
+                        _formKey.currentState!.reset();
                       }
-                      _formKey.currentState!.reset();
                     },
                     child: const Text(
                       "Save",

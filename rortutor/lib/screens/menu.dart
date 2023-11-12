@@ -2,9 +2,13 @@
 import 'package:flutter/material.dart';
 import 'package:rortutor/screens/shoplist_form.dart';
 import 'package:rortutor/widgets/left_drawer.dart';
+import 'package:rortutor/screens/product_list.dart';
 
 class MyHomePage extends StatelessWidget {
-   MyHomePage({Key? key}) : super(key: key);
+  final List<Product> products = [];
+  
+  MyHomePage({Key? key}) : super(key: key);
+  
   final List<ShopItem> items = [
     ShopItem("Lihat Item", Icons.checklist, Colors.pinkAccent),
     ShopItem("Tambah Item", Icons.add_shopping_cart, Colors.blueAccent),
@@ -18,6 +22,8 @@ class MyHomePage extends StatelessWidget {
   // case the title) provided by the parent (in this case the App widget) and
   // used by the build method of the State. Fields in a Widget subclass are
   // always marked "final".
+
+
 @override
 Widget build(BuildContext context) {
   return Scaffold(
@@ -63,12 +69,29 @@ Widget build(BuildContext context) {
                   return ShopCard(item);
                 }).toList(),
               ),
-            ],
-          ),
+              ElevatedButton(
+              onPressed: () {
+                // Panggil fungsi untuk menavigasi ke halaman daftar produk
+                _navigateToProductList(context, products);
+              },
+              child: const Text("Lihat Produk"),
+            ),
+          ],
         ),
+      ),
+    ),
+  );
+}
+
+  void _navigateToProductList(BuildContext context, List<Product> products) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ProductListPage(),
       ),
     );
   }
+
 }
 
 class ShopItem {
@@ -92,17 +115,22 @@ class ShopCard extends StatelessWidget {
         // Area responsive terhadap sentuhan
         onTap: () {
           // Memunculkan SnackBar ketika diklik
-          // Memunculkan SnackBar ketika diklik
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(SnackBar(
                 content: Text("Kamu telah menekan tombol ${item.name}!")));
 
-          // Navigate ke route yang sesuai (tergantung jenis tombol)
-          if (item.name == "Tambah Item") {
-            // TODO: Gunakan Navigator.push untuk melakukan navigasi ke MaterialPageRoute yang mencakup ShopFormPage.
-            Navigator.push(context,
-            MaterialPageRoute(builder: (context) => const ShopFormPage()));
+          // Menavigasi langsung ke halaman daftar produk
+          if (item.name == "Lihat Item") {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ProductListPage(),
+              ),
+            );
+          } else if (item.name == "Tambah Item") {
+            // Menavigasi ke halaman formulir jika item adalah "Tambah Item"
+            Navigator.push(context, MaterialPageRoute(builder: (context) => const ShopFormPage()));
           }
         },
         child: Container(
@@ -131,3 +159,4 @@ class ShopCard extends StatelessWidget {
     );
   }
 }
+

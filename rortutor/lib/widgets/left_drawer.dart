@@ -1,6 +1,7 @@
 // TODO Implement this library.
   import 'package:flutter/material.dart';
   import 'package:rortutor/screens/menu.dart';
+  import 'package:rortutor/screens/product_list.dart';
   import 'package:rortutor/screens/shoplist_form.dart';
 
   class LeftDrawer extends StatelessWidget {
@@ -18,7 +19,7 @@
               child: Column(
                 children: [
                   Text(
-                    'Shopping List',
+                    'RORTUTOR',
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       fontSize: 30,
@@ -55,7 +56,7 @@
               ),
               ListTile(
                 leading: const Icon(Icons.add_shopping_cart),
-                title: const Text('Tambah Produk'),
+                title: const Text('Tambah Item'),
                 // Bagian redirection ke ShopFormPage
                 onTap: () {
                   Navigator.pushReplacement(
@@ -63,6 +64,19 @@
                       MaterialPageRoute(
                         builder: (context) => const ShopFormPage(),
                       ));
+                },
+              ),
+              ListTile(
+                leading: const Icon(Icons.checklist),
+                title: const Text('Lihat Item'),
+                onTap: () {
+                  // Navigasi ke halaman daftar produk
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => ProductListPage(),
+                    ),
+                  );
                 },
               ),
           ],
