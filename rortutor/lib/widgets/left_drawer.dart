@@ -14,7 +14,7 @@
           children: [
             const DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.indigo,
+                color: Colors.blueAccent,
               ),
               child: Column(
                 children: [

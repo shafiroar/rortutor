@@ -29,9 +29,9 @@ Widget build(BuildContext context) {
   return Scaffold(
       appBar: AppBar(
         title: const Text(
-          'Shopping List',
+          'Cari Tutor',
         ),
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.blueAccent,
         foregroundColor: Colors.white,
         
       ),
@@ -47,11 +47,12 @@ Widget build(BuildContext context) {
                 padding: EdgeInsets.only(top: 10.0, bottom: 10.0),
                 // Widget Text untuk menampilkan tulisan dengan alignment center dan style yang sesuai
                 child: Text(
-                  'PBP Shop', // Text yang menandakan toko
+                  'RORTUTOR', // Text yang menandakan toko
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 30,
                     fontWeight: FontWeight.bold,
+                    color: Colors.blueAccent,
                   ),
                 ),
               ),
@@ -69,13 +70,6 @@ Widget build(BuildContext context) {
                   return ShopCard(item);
                 }).toList(),
               ),
-              ElevatedButton(
-              onPressed: () {
-                // Panggil fungsi untuk menavigasi ke halaman daftar produk
-                _navigateToProductList(context, products);
-              },
-              child: const Text("Lihat Produk"),
-            ),
           ],
         ),
       ),
@@ -105,22 +99,19 @@ class ShopItem {
 class ShopCard extends StatelessWidget {
   final ShopItem item;
 
-  const ShopCard(this.item, {super.key}); // Constructor
+  const ShopCard(this.item, {Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Material(
+    return Card(
       color: item.color,
       child: InkWell(
-        // Area responsive terhadap sentuhan
         onTap: () {
-          // Memunculkan SnackBar ketika diklik
           ScaffoldMessenger.of(context)
             ..hideCurrentSnackBar()
             ..showSnackBar(SnackBar(
                 content: Text("Kamu telah menekan tombol ${item.name}!")));
-
-          // Menavigasi langsung ke halaman daftar produk
+          
           if (item.name == "Lihat Item") {
             Navigator.push(
               context,
@@ -129,13 +120,20 @@ class ShopCard extends StatelessWidget {
               ),
             );
           } else if (item.name == "Tambah Item") {
-            // Menavigasi ke halaman formulir jika item adalah "Tambah Item"
-            Navigator.push(context, MaterialPageRoute(builder: (context) => const ShopFormPage()));
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const ShopFormPage(),
+              ),
+            );
           }
         },
         child: Container(
-          // Container untuk menyimpan Icon dan Text
           padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            color: item.color,
+            borderRadius: BorderRadius.circular(10.0), // Sesuaikan dengan radius yang diinginkan
+          ),
           child: Center(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

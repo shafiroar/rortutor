@@ -18,7 +18,7 @@ class ProductListPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Daftar Produk'),
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.blueAccent,
         foregroundColor: Colors.white,
       ),
       body: ListView.builder(

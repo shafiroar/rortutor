@@ -25,7 +25,7 @@ class _ShopFormPageState extends State<ShopFormPage> {
             'Form Tambah Item',
           ),
         ),
-        backgroundColor: Colors.indigo,
+        backgroundColor: Colors.blueAccent,
         foregroundColor: Colors.white,
       ),
       // TODO: Tambahkan drawer yang sudah dibuat di sini
@@ -116,7 +116,7 @@ class _ShopFormPageState extends State<ShopFormPage> {
                   child: ElevatedButton(
                     style: ButtonStyle(
                       backgroundColor:
-                          MaterialStateProperty.all(Colors.indigo),
+                          MaterialStateProperty.all(Colors.blueAccent),
                       ),
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
