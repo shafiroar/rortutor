@@ -1,8 +1,9 @@
 
 import 'package:flutter/material.dart';
+import 'package:rortutor/models/product.dart';
 import 'package:rortutor/screens/shoplist_form.dart';
 import 'package:rortutor/widgets/left_drawer.dart';
-import 'package:rortutor/screens/product_list.dart';
+
 
 class MyHomePage extends StatelessWidget {
   final List<Product> products = [];
@@ -77,14 +78,7 @@ Widget build(BuildContext context) {
   );
 }
 
-  void _navigateToProductList(BuildContext context, List<Product> products) {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => ProductListPage(),
-      ),
-    );
-  }
+
 
 }
 
@@ -112,14 +106,7 @@ class ShopCard extends StatelessWidget {
             ..showSnackBar(SnackBar(
                 content: Text("Kamu telah menekan tombol ${item.name}!")));
           
-          if (item.name == "Lihat Item") {
-            Navigator.push(
-              context,
-              MaterialPageRoute(
-                builder: (context) => ProductListPage(),
-              ),
-            );
-          } else if (item.name == "Tambah Item") {
+          if (item.name == "Tambah Item") {
             Navigator.push(
               context,
               MaterialPageRoute(

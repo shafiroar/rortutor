@@ -199,18 +199,18 @@ Dengan memahami perbedaan antara Navigator.push() dan Navigator.pushReplacement(
 
 | Widget | Deskripsi | Konteks Penggunaan |
 | --- | --- | --- |
-| `Container` | Widget yang menambahkan padding, margin, border, warna latar belakang, atau dekorasi lainnya ke widget anaknya. | Digunakan saat Anda ingin mengontrol detail tata letak yang spesifik seperti warna latar belakang, padding, dan lainnya. |
-| `Row` dan `Column` | Widget yang mengatur widget anaknya secara horizontal (`Row`) atau vertikal (`Column`). | Digunakan saat Anda ingin mengatur sekelompok widget dalam arah horizontal atau vertikal. |
-| `Stack` | Widget yang mengatur widget anaknya di atas widget dasar. Widget anak dapat benar-benar atau sebagian tumpang tindih dengan widget dasar. | Digunakan saat Anda ingin meletakkan satu widget di atas widget lainnya, seperti overlay atau efek tumpukan. |
-| `ListView` | Widget yang mirip kolom, secara otomatis menyediakan scrolling ketika kontennya terlalu panjang untuk kotak render-nya. | Digunakan saat Anda memiliki sejumlah widget yang harus ditampilkan dalam daftar scrollable. |
+| `Container` | Widget yang menambahkan padding, margin, border, warna latar belakang, atau dekorasi lainnya ke widget anaknya. | Digunakan saat kita ingin mengontrol detail tata letak yang spesifik seperti warna latar belakang, padding, dan lainnya. |
+| `Row` dan `Column` | Widget yang mengatur widget anaknya secara horizontal (`Row`) atau vertikal (`Column`). | Digunakan saat kita ingin mengatur sekelompok widget dalam arah horizontal atau vertikal. |
+| `Stack` | Widget yang mengatur widget anaknya di atas widget dasar. Widget anak dapat benar-benar atau sebagian tumpang tindih dengan widget dasar. | Digunakan saat kita ingin meletakkan satu widget di atas widget lainnya, seperti overlay atau efek tumpukan. |
+| `ListView` | Widget yang mirip kolom, secara otomatis menyediakan scrolling ketika kontennya terlalu panjang untuk kotak render-nya. | Digunakan saat kita memiliki sejumlah widget yang harus ditampilkan dalam daftar scrollable. |
 | `Card` | Menerima satu anak, tetapi anak tersebut bisa berupa `Row`, `Column`, atau widget lain yang memegang daftar anak-anak. | Digunakan untuk menampilkan informasi dalam blok dengan pencahayaan dan elevasi. |
 | `ListTile` | Widget khusus dari Material library, digunakan untuk membuat baris yang berisi hingga 3 baris teks dan ikon leading dan trailing opsional. | Biasanya digunakan dalam `Card` atau `ListView`, tetapi bisa digunakan di tempat lain. |
-| `Table` | Widget yang mengatur kontennya dalam baris dan kolom. | Digunakan saat Anda ingin menampilkan data dalam format tabel. |
-| `SizedBox` | Widget yang digunakan untuk membuat dimensi yang tepat. Saat `SizedBox` membungkus widget, ia mengubah ukuran widget menggunakan properti `height` dan `width`. | Digunakan saat Anda ingin memberikan ukuran yang spesifik atau ruang kosong pada tata letak. |
-| `Flexible` | Widget yang membungkus widget lain, membuat widget tersebut menjadi resizable. | Digunakan dalam `Row` atau `Column` saat Anda ingin widget anak memanfaatkan ruang yang tersedia. |
-| `AspectRatio` | Widget yang mencoba mengubah ukuran anaknya ke rasio aspek yang spesifik. | Digunakan saat Anda ingin mempertahankan rasio aspek antara lebar dan tinggi widget. |
-| `Align` | Widget yang mengatur anaknya dalam dirinya sendiri dan secara opsional menentukan ukuran dirinya sendiri berdasarkan ukuran anaknya. | Digunakan saat Anda ingin mengatur posisi widget anak dalam widget induknya. |
-| `LayoutBuilder` | Widget yang membangun widget berdasarkan batasan BoxConstraint dari widget induknya. | Digunakan saat Anda ingin membuat tata letak responsif yang dapat beradaptasi dengan ukuran induknya. |
+| `Table` | Widget yang mengatur kontennya dalam baris dan kolom. | Digunakan saat kita ingin menampilkan data dalam format tabel. |
+| `SizedBox` | Widget yang digunakan untuk membuat dimensi yang tepat. Saat `SizedBox` membungkus widget, ia mengubah ukuran widget menggunakan properti `height` dan `width`. | Digunakan saat kita ingin memberikan ukuran yang spesifik atau ruang kosong pada tata letak. |
+| `Flexible` | Widget yang membungkus widget lain, membuat widget tersebut menjadi resizable. | Digunakan dalam `Row` atau `Column` saat kita ingin widget anak memanfaatkan ruang yang tersedia. |
+| `AspectRatio` | Widget yang mencoba mengubah ukuran anaknya ke rasio aspek yang spesifik. | Digunakan saat kita ingin mempertahankan rasio aspek antara lebar dan tinggi widget. |
+| `Align` | Widget yang mengatur anaknya dalam dirinya sendiri dan secara opsional menentukan ukuran dirinya sendiri berdasarkan ukuran anaknya. | Digunakan saat kita ingin mengatur posisi widget anak dalam widget induknya. |
+| `LayoutBuilder` | Widget yang membangun widget berdasarkan batasan BoxConstraint dari widget induknya. | Digunakan saat kita ingin membuat tata letak responsif yang dapat beradaptasi dengan ukuran induknya. |
 </details>
 
 <details>
@@ -318,15 +318,15 @@ Berikut adalah langkah-langkah penerapan clean architecture dalam aplikasi Flutt
 
 1. **Lapisan Data**: Lapisan ini terletak pada lapisan paling luar. Lapisan ini terdiri dari kode sumber data seperti Rest API, database lokal, Firebase, atau sumber lainnya. Juga kode platform yang membangun tampilan aplikasi (widgets).
 
-2. **Lapisan Domain**: Lapisan ini berisi entitas, use cases, dan interfaces repositori. Mulai dengan menulis entitas seperti `weather.dart`, kemudian buat kode untuk repositori seperti `weather_repository.dart`. Repositori ini merupakan sebuah abstract class dan akan diimplementasikan nanti pada lapisan data. Setelah itu, buat kode untuk use case seperti `get_current_weather.dart`[Source 0].
+2. **Lapisan Domain**: Lapisan ini berisi entitas, use cases, dan interfaces repositori. Mulai dengan menulis entitas seperti `weather.dart`, kemudian buat kode untuk repositori seperti `weather_repository.dart`. Repositori ini merupakan sebuah abstract class dan akan diimplementasikan nanti pada lapisan data. Setelah itu, buat kode untuk use case seperti `get_current_weather.dart`.
 
-3. **Lapisan Presentasi**: Lapisan ini mencakup manajemen state (BLoC) dan halaman (Pages). Untuk BLoC, buat kode state management seperti `weather_state.dart`, `weather_event.dart`, dan `weather_bloc.dart`. Untuk Pages, buat kode untuk pages atau UI dari aplikasi seperti `weather_page.dart`[Source 0].
+3. **Lapisan Presentasi**: Lapisan ini mencakup manajemen state (BLoC) dan halaman (Pages). Untuk BLoC, buat kode state management seperti `weather_state.dart`, `weather_event.dart`, dan `weather_bloc.dart`. Untuk Pages, buat kode untuk pages atau UI dari aplikasi seperti `weather_page.dart`.
 
-4. **Penulisan Kode Testing**: Untuk setiap lapisan dan fitur yang telah dibuat, buat kode testing yang sesuai. Misalnya, untuk use case `get_current_weather.dart`, buat kode testing `get_current_weather_test.dart`. Jalankan testing untuk memastikan kode berfungsi sebagaimana mestinya[Source 0].
+4. **Penulisan Kode Testing**: Untuk setiap lapisan dan fitur yang telah dibuat, buat kode testing yang sesuai. Misalnya, untuk use case `get_current_weather.dart`, buat kode testing `get_current_weather_test.dart`. Jalankan testing untuk memastikan kode berfungsi sebagaimana mestinya.
 
-5. **Mengintegrasikan Lapisan**: Setelah semua lapisan dan fitur dibuat dan diuji, lapisan-lapisan tersebut perlu diintegrasikan. Misalnya, dalam kode presentasi, Anda dapat membuat `StreamBuilder` yang memanfaatkan use case dari lapisan domain untuk memperbarui tampilan pengguna berdasarkan data yang diterima dari lapisan data[Source 2].
+5. **Mengintegrasikan Lapisan**: Setelah semua lapisan dan fitur dibuat dan diuji, lapisan-lapisan tersebut perlu diintegrasikan. Misalnya, dalam kode presentasi, kita dapat membuat `StreamBuilder` yang memanfaatkan use case dari lapisan domain untuk memperbarui tampilan pengguna berdasarkan data yang diterima dari lapisan data.
 
-6. **Struktur Proyek**: Untuk memudahkan navigasi dan pemahaman kode, Anda bisa mengorganisasikan kode dalam struktur folder tertentu. Misalnya, Anda bisa membuat folder `core` yang berisi lapisan data & domain, dan folder `feature` untuk lapisan presentasi.
+6. **Struktur Proyek**: Untuk memudahkan navigasi dan pemahaman kode, kita bisa mengorganisasikan kode dalam struktur folder tertentu. Misalnya, kita bisa membuat folder `core` yang berisi lapisan data & domain, dan folder `feature` untuk lapisan presentasi.
 </details>
 
 <details>
@@ -483,3 +483,305 @@ return Scaffold(
 
 
 </details>
+
+# Tugas 9
+<details>
+<summary>Apakah bisa kita melakukan pengambilan data JSON tanpa membuat model terlebih dahulu? Jika iya, apakah hal tersebut lebih baik daripada membuat model sebelum melakukan pengambilan data JSON?</summary>
+
+Ya, kita dapat melakukan pengambilan data JSON tanpa membuat model terlebih dahulu. Kita dapat melakukan ini dengan menggunakan fungsi seperti json.loads() dalam Python atau JSON.parse() dalam JavaScript untuk mengubah string JSON menjadi objek atau struktur data yang dapat digunakan dalam bahasa pemrograman
+
+Namun, meskipun kita dapat melakukan ini, bukan berarti ini adalah cara terbaik. Membuat model sebelum melakukan pengambilan data JSON memiliki beberapa keuntungan:
+
+1. `Kejelasan Struktur Data`: Dengan mendefinisikan model, kita akan memiliki gambaran yang jelas tentang struktur data yang kita harapkan dari JSON. Ini akan memudahkan kita untuk menavigasi dan memanipulasi data tersebut.
+2. `Validasi Data`: Model dapat digunakan untuk melakukan validasi data. kita dapat memastikan bahwa data yang kita terima dalam JSON sesuai dengan apa yang kita harapkan dalam model kita.
+3. `Kesalahan Dapat Ditangani Lebih Baik`: Jika ada kesalahan dalam data JSON, seperti atribut yang hilang atau tipe data yang salah, model dapat membantu kita menangkap dan menangani kesalahan tersebut.
+4. `Pemeliharaan Kode`: Model membuat kode kita lebih mudah dibaca dan dipelihara. Jika struktur data JSON berubah, kita hanya perlu memperbarui model kita, bukan setiap tempat di kode kita di mana kita mengakses data JSON 2.
+
+Jadi, meskipun membuat model sebelum melakukan pengambilan data JSON memerlukan sedikit usaha lebih, manfaatnya dalam jangka panjang biasanya melebihi usaha tersebut.
+</details>
+
+<details>
+<summary>Jelaskan fungsi dari CookieRequest dan jelaskan mengapa instance CookieRequest perlu untuk dibagikan ke semua komponen di aplikasi Flutter.</summary>
+
+CookieRequest dalam konteks pengembangan Flutter biasanya merujuk pada permintaan HTTP yang mencakup cookie dalam header permintaan. Cookie adalah potongan data kecil yang disimpan di perangkat pengguna dan dikirim kembali ke server setiap kali permintaan dibuat. Cookie sering digunakan untuk otentikasi pengguna, pelacakan sesi, dan penyimpanan preferensi pengguna/
+
+Berikut adalah contoh sederhana bagaimana cara mengatur cookie dalam permintaan HTTP di Flutter:
+.
+```dart
+var cookies = [
+  'cookie1=value1',
+  'cookie2=value2',
+];
+
+var headers = {
+  'Cookie': cookies.join('; '),
+};
+
+var response = await http.get('https://www.example.com', headers: headers);
+```
+
+Dalam contoh di atas, kita membuat dua cookie dan menggabungkannya menjadi satu string dengan pemisah '; '. Kemudian, kita mengatur string cookie ini sebagai nilai dari header 'Cookie' dalam permintaan HTTP kita .
+
+Membagikan instance CookieRequest ke semua komponen dalam aplikasi Flutter penting karena beberapa alasan:
+
+- **Persistensi Sesi**: Cookie sering digunakan untuk melacak sesi pengguna. Dengan membagikan instance CookieRequest, kita dapat memastikan bahwa semua komponen dalam aplikasi kita menggunakan sesi yang sama.
+
+- **Konsistensi Data**: Jika beberapa komponen dalam aplikasi kita memerlukan data yang sama (misalnya, data pengguna yang masuk), kita dapat menyimpan data ini dalam cookie dan membagikannya di antara semua komponen. Ini memastikan bahwa semua komponen kita memiliki akses ke data yang paling up-to-date dan konsisten.
+
+- **Performa**: Dengan membagikan instance CookieRequest, kita dapat menghindari membuat permintaan HTTP tambahan untuk mengambil data yang sama. Ini dapat meningkatkan performa aplikasi kita.
+
+</details>
+
+<details>
+<summary> Jelaskan mekanisme pengambilan data dari JSON hingga dapat ditampilkan pada Flutter.</summary>
+
+Berikut adalah mekanisme untuk mengambil data dari JSON:
+
+1. **Membuat model kustom:** kita dapat menggunakan situs web Quicktype untuk menghasilkan model kustom dari JSON kita. Model ini akan digunakan untuk memetakan data JSON ke dalam objek Dart yang bisa kita gunakan di aplikasi Flutter kita.
+
+2. **Menambahkan dependensi HTTP:** Pada proyek Flutter kita, tambahkan dependensi `http` di file `pubspec.yaml`. Ini akan memungkinkan kita untuk melakukan permintaan HTTP untuk mendapatkan data JSON. kita juga perlu menambahkan izin internet pada file `AndroidManifest.xml` yang berada di `android/app/src/main/AndroidManifest.xml` dengan menambahkan kode berikut: `<uses-permission android:name="android.permission.INTERNET" />`.
+
+3. **Melakukan Fetch Data:** Implementasikan fungsi asinkronus untuk mengirim permintaan HTTP dan mendapatkan data JSON. Berikut adalah contoh fungsi `fetchAlbum()` yang bisa kita tambahkan pada file `lib/screens/album_list.dart`:
+
+```dart
+Future<List<Album>> fetchAlbum() async {
+  var url = Uri.parse('(Nama URL)');
+  var response = await http.get(
+      url,
+      headers: {"Content-Type": "application/json"},
+  );
+
+  // Melakukan decode response menjadi bentuk json
+  var data = jsonDecode(utf8.decode(response.bodyBytes));
+
+  // Melakukan konversi data json menjadi object Album
+  List<Album> list_album = [];
+  for (var d in data) {
+      if (d != null) {
+          list_album.add(Album.fromJson(d));
+      }
+  }
+  return list_album;
+}
+```
+
+4. **Menampilkan Data:** Kita dapat menggunakan widget `FutureBuilder` untuk menampilkan data yang telah di-fetch. Nilai `future` dari `FutureBuilder` adalah fungsi `fetchAlbum()`. Ketika fungsi ini dipanggil dan telah selesai melakukan proses, maka `snapshot` akan berisi `list_ablbum` yang di-return oleh fungsi tersebut. Kemudian, `snapshot.data` ini akan diolah untuk ditampilkan pada `ListView.builder`.
+
+Contoh penggunaan `FutureBuilder` untuk menampilkan data:
+
+```dart
+FutureBuilder<List<Album>>(
+  future: fetchAlbum(),
+  builder: (BuildContext context, AsyncSnapshot snapshot) {
+    if (snapshot.hasData) {
+      return ListView.builder(
+        itemCount: snapshot.data.length,
+        itemBuilder: (BuildContext context, int index) {
+          return ListTile(
+            title: Text(snapshot.data[index].title),
+            subtitle: Text(snapshot.data[index].artist),
+          );
+        },
+      );
+    } else {
+      return Center(
+        child: CircularProgressIndicator(),
+      );
+    }
+  },
+)
+```
+
+Pada contoh di atas, kita menggunakan `ListView.builder` untuk menampilkan setiap album dalam bentuk `ListTile`. Jika data belum tersedia (misalnya, permintaan HTTP masih berlangsung), maka akan ditampilkan `CircularProgressIndicator` [Source 0](https://www.geeksforgeeks.org/flutter-fetching-json-data-using-http/).
+</details>
+
+<details>
+<summary> Jelaskan mekanisme autentikasi dari input data akun pada Flutter ke Django hingga selesainya proses autentikasi oleh Django dan tampilnya menu pada Flutter.</summary>
+
+Proses autentikasi pengguna dapat diuraikan sebagai berikut:
+
+1. Pengguna memasukkan informasi akun mereka, termasuk nama pengguna dan kata sandi, pada halaman LoginPage di aplikasi Flutter.
+
+2. Ketika pengguna menekan tombol login, fungsi login pada CookieRequest dipanggil. Fungsi ini mengirimkan permintaan HTTP ke URL proyek Django.
+
+3. Di sisi Django, autentikasi dilakukan dengan memanggil fungsi `authenticate(username=username, password=password)` pada file views.py milik modul authentication.
+
+4. Django kemudian memeriksa apakah user tidak sama dengan None dan apakah user masih aktif. Jika kedua kondisi ini terpenuhi, maka autentikasi berhasil.
+
+5. Kembali ke aplikasi Flutter, jika permintaan berhasil dan pengguna berhasil login, pengguna akan diarahkan ke MyHomePage dan muncul pesan selamat datang menggunakan widget SnackBar.
+
+Berikut adalah contoh kode untuk mengimplementasikan proses tersebut dalam Flutter dan Django:
+
+Flutter:
+
+```dart
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+
+void loginUser(String username, String password) async {
+  final response = await http.post(
+    'your Django project URL',
+    headers: <String, String>{
+      'Content-Type': 'application/json; charset=UTF-8',
+    },
+    body: jsonEncode(<String, String>{
+      'username': username,
+      'password': password,
+    }),
+  );
+
+  if (response.statusCode == 200) {
+    // If the server returns a 200 OK response, then parse the JSON.
+    var jsonResponse = json.decode(response.body);
+    if(jsonResponse["loggedIn"] == true){
+      // redirect to MyHomePage and show SnackBar
+    } else {
+      // show error message
+    }
+  } else {
+    // If the server did not return a 200 OK response,
+    // then throw an exception.
+    throw Exception('Failed to load album');
+  }
+}
+```
+
+
+Django:
+
+```python
+from django.contrib.auth import authenticate
+from django.http import JsonResponse
+
+def login(request):
+    data = json.loads(request.body)
+    username = data.get("username")
+    password = data.get("password")
+    user = authenticate(request, username=username, password=password)
+    if user is not None and user.is_active:
+        return JsonResponse({"loggedIn": True})
+    else:
+        return JsonResponse({"loggedIn": False})
+```
+
+Harap dicatat bahwa kode di atas hanyalah contoh dasar dan mungkin perlu disesuaikan dengan kebutuhan spesifik kita. Misalnya, kita mungkin ingin menambahkan lebih banyak detail pengguna ke respons login, atau mengimplementasikan mekanisme token atau session untuk menjaga pengguna tetap masuk setelah mereka menutup aplikasi.
+
+</details>
+
+<details>
+<summary>Sebutkan seluruh widget yang kamu pakai pada tugas ini dan jelaskan fungsinya masing-masing.</summary>
+Berikut adalah parafrase dari informasi yang diberikan, dan tabel yang merangkum fungsi dan penjelasan implementasi untuk setiap widget:
+
+| Widget         | Fungsi                                            | Penjelasan Implementasi                                                                                                               |
+|----------------|-----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
+| TextField      | Memungkinkan pengguna untuk memasukkan teks          | Digunakan untuk memasukkan nama pengguna dan kata sandi                                                                                                      |
+| FutureBuilder  | Membangun widget secara asinkron                       | Mengelola status loading, error, dan data yang tersedia                                                                                         |
+| ListView.builder | Membuat daftar yang dapat digulirkan                 | Menampilkan daftar album yang diambil                                                                                                      |
+| Column        | Menyusun komponen secara vertikal                      | Menyusun detail album seperti nama, jumlah, dan deskripsi secara vertikal                                                                 |
+| SizedBox       | Menambahkan ruang vertikal                                 | Menambahkan ruang antara berbagai informasi tentang album                                                                                             |
+
+Parafrase:
+
+1. **TextField**: Widget ini memungkinkan pengguna memasukkan teks ke dalam aplikasi. Ini biasanya digunakan untuk memasukkan kredensial pengguna seperti nama pengguna dan kata sandi.
+
+2. **FutureBuilder**: Widget ini membangun widget lain secara asinkron. Ini berguna untuk mengelola keadaan loading, error, dan data yang tersedia.
+
+3. **ListView.builder**: Widget ini membuat daftar item yang dapat digulirkan. Ini sering digunakan untuk menampilkan daftar data yang diambil dari suatu sumber, seperti daftar album.
+
+4. **Column**: Widget ini menyusun anak-anaknya secara vertikal. Ini berguna untuk menyusun informasi detail tentang suatu objek, seperti nama album, jumlah, dan deskripsi, dalam daftar vertikal.
+
+5. **SizedBox**: Widget ini menambahkan ruang vertikal dalam layout. Ini berguna untuk menambahkan ruang antara berbagai informasi tentang suatu objek, seperti album.
+</details
+
+<details>
+<summary> Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step! (bukan hanya sekadar mengikuti tutorial).</summary>
+
+Untuk membuat halaman login dan mengintegrasikan sistem autentikasi Django, berikut adalah langkah-langkah yang perlu Anda lakukan:
+
+1. **Membuat Django App untuk Autentikasi**
+
+   Pertama-tama, Anda perlu membuat aplikasi Django khusus untuk menangani proses autentikasi. Anda juga perlu menginstall library corsheaders untuk mengatasi masalah CORS jika aplikasi Anda diakses dari domain lain [Source 1](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Authentication).
+
+2. **Membuat Fungsi Login pada views.py**
+
+   Di dalam aplikasi Django tersebut, Anda perlu membuat fungsi login pada `views.py` untuk menangani proses autentikasi login. Anda dapat menggunakan decorator `login_required` untuk membatasi akses ke view ini hanya untuk user yang sudah login. Jika user belum login, mereka akan di-redirect ke halaman login yang telah ditentukan di `settings.LOGIN_URL` [Source 1](https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Authentication).
+
+   Contoh kode fungsi login:
+
+   ```python
+   from django.contrib.auth.decorators import login_required
+   @login_required
+   def my_view(request):
+       # …
+   ```
+
+3. **Menggunakan Package pbp_django_auth**
+
+   Anda bisa menggunakan package `pbp_django_auth` untuk mempermudah proses autentikasi. Anda perlu menginstall package ini dan melakukan konfigurasi yang diperlukan [Source 10](https://www.django-rest-framework.org/api-guide/authentication/).
+
+4. **Membuat login.dart**
+
+   Buat berkas baru `lib/screens/login.dart` dan isilah kode untuk menampilkan halaman login. Anda bisa merujuk ke Tutorial 8 untuk contoh kode halaman login.
+
+5. **Membuat Model Kustom**
+
+   Anda perlu membuat model kustom untuk menangani data user. Model ini nantinya akan digunakan untuk mengambil data user dari database dan melakukan operasi lain yang diperlukan [Source 2](https://docs.djangoproject.com/en/4.2/topics/auth/default/).
+
+6. **Membuat Halaman Daftar Album dan Detail Album**
+
+   Buat berkas `lib/screens/album_list.dart` dan `lib/screens/album_detail.dart` untuk menampilkan daftar album dan detail album. Anda bisa merujuk ke Mekanisme Pengambilan Data JSON dan Tutorial 8 untuk contoh kode halaman ini.
+
+Contoh kode routing dari halaman daftar album ke detail album:
+
+```dart
+onTap: () {
+  Navigator.push(
+    context,
+    MaterialPageRoute(
+      builder: (context) => AlbumDetailPage(album: snapshot.data![index]),
+    ),
+  );
+},
+```
+
+Contoh kode untuk halaman detail album:
+
+```dart
+class AlbumDetailPage extends StatelessWidget {
+  final Album album;
+
+  const AlbumDetailPage({Key? key, required this.album}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        ...
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          ...
+          children: [
+            Text(
+              'Name: ${album.fields.name}',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 10),
+            Text('Amount: ${album.fields.amount}'),
+            SizedBox(height: 10),
+            Text('Description: ${album.fields.description}'),
+          ],
+        ),
+      ),
+    );
+  }
+}
+```
+
+Setelah menyelesaikan langkah-langkah di atas, Anda seharusnya sudah memiliki halaman login yang berfungsi dan sistem autentikasi Django yang terintegrasi dengan baik di aplikasi Anda.
+
+</details>
+
+
+ 

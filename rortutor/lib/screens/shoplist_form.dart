@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:rortutor/widgets/left_drawer.dart';
-import 'package:rortutor/screens/product_list.dart';
 
 // TODO: Impor drawer yang sudah dibuat sebelumnya
 
@@ -121,9 +120,6 @@ class _ShopFormPageState extends State<ShopFormPage> {
                     onPressed: () {
                       if (_formKey.currentState!.validate()) {
                         // Simpan data produk ke dalam list
-                        Product newProduct = Product(_name, _price, _description);
-                        ProductListPage.products.add(newProduct);
-
                         // Tampilkan daftar produk yang sudah disimpan di dalam AlertDialog
                         showDialog(
                           context: context,
